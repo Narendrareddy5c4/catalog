@@ -1,0 +1,31 @@
+{% extends 'HomePage.html' %}
+{% block content %}
+<div class="container">
+  <h3 style="color: orange;">New Category</h1> <br>
+  <form method="post" action="{{url_for('catnew')}}">
+    <div class="form-group">
+      <label>Name :</label>
+      <input type="text" class="form-control" id="email"  name="category_name" value='' required>
+    </div>
+    <div class="container">
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" style="background-color: green;">
+      Add category
+      </button>
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Click here to add new category</h4>
+              <button type="button" class="close" data-dismiss="modal"></button>
+            </div>
+            <div class="modal-footer">
+        	    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> 
+	            <input type="submit"  class="btn btn-success" value="Add category">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

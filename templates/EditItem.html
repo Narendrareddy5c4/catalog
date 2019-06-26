@@ -1,0 +1,47 @@
+{% extends 'HomePage.html' %}
+{% block content %}
+<div class="container">
+  <h3 style="color: orange;">Edit Item</h1> <a href="{{url_for('removeitem',categoryid = catid,itemid=iid)}}"><h4 align="right">Delete Item</h4></a><br>
+  <form method="post" action="{{url_for('itemupdate',categoryid = catid,itemid=iid)}}">
+    <div class="form-group">
+      <label>Name :</label>
+      <input type="text" class="form-control" id="email"  name="chairname" value='{{chairname}}' required>
+    </div>
+    <div class="form-group">
+      <label>Image :</label>
+      <input type="text" class="form-control" value="{{chairimage}}" required name="chairimage">
+    </div>
+    <div class="form-group">
+      <label>Price :</label>
+      <input type="text" class="form-control" value="{{chairprice}}" required name="chairprice">
+    </div>
+    <div class="form-group">
+      <label>Weight :</label>
+      <input type="text" class="form-control" value="{{chairweight}}" required name="chairweight">
+    </div>
+    <div class="form-group">
+      <label>Brand :</label>
+      <input type="text" class="form-control" value="{{chairbrand}}" required name="chairbrand">
+    </div>
+    <div class="container">
+      <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success">
+      Edit Item
+      </button>
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Click here to edit item</h4>
+              <button type="button" class="close" data-dismiss="modal"></button>
+            </div>
+            <div class="modal-footer">
+        	    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> 
+	            <input type="submit"  class="btn btn-success"value="Edit Item">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

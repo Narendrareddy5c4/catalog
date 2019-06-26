@@ -1,0 +1,12 @@
+{% extends 'HomePage.html' %}
+{% block content %}
+{% if categories %}
+
+	{% for each in categories %}
+		<h1>{{each.item_name}}</h1>
+	{% endfor %}
+{% else %}
+	no items found
+{% endif %}
+{% endblock %}
+<a href="{{url_for('homeretrieve')}}">Home</a>

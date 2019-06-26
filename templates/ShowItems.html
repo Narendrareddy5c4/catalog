@@ -1,0 +1,24 @@
+{% extends 'HomePage.html' %}
+{% block content %}
+{% if Items %}
+	<div class="container">
+		<div class="card-columns">
+		{% for i in Items %}
+		
+		 	<div class="card w-75">
+		 		<div class="card-header">
+		 			<a href="{{url_for('iteminfo',category_id=i.chair_id,itemid=i.item_id)}}"><img src="{{i.item_image}}" width="220px" height="200px"></a>
+		 		</div>
+		    	<div class="card-footer">
+		    		<h4 style="color:green;">{{i.item_name}}</h4>
+		    		<h4>{{i.item_price}}/-</h4>
+		    		<a href="{{url_for('itemupdate',categoryid=i.chair_id,itemid=i.item_id)}}"><h4>edit item</h4></a>
+				</div>
+		 	</div>
+		
+		{% endfor %}
+	</div>
+{% else %}
+	no items found
+{% endif %}
+{% endblock %}

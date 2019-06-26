@@ -1,0 +1,46 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+<script>
+  function start() {
+    gapi.load('auth2', function() {
+      auth2 = gapi.auth2.init({
+        client_id: '1068662915906-dbkvr2c1cvhi7lou9hfighqrip7ot98v.apps.googleusercontent.com'
+    });
+      });
+  }
+</script>
+
+<div class="container" style="position:relative;top:50px;left:600px;">
+  <button class="b1" id="signinButton"><img src="{{url_for('static',filename='images/img1.jpg')}}"/>
+  </button>
+</div>
+<div id="result"></div>
+<script>
+  $('#signinButton').click(function() {
+    function signInCallback(authResult){
+      if (authResult['code']){
+        $('#signinButton').attr('style', 'display: none');
+        $.ajax({
+          type: 'POST',
+          url: '/gconnect?state={{STATE}}',
+          headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+          },
+          contentType: 'application/octet-stream; charset=utf-8',
+          success:function(result){
+            $('#result').html('<h2>Sucess..........Wait sometime</h2></br>'+ result)
+                 setTimeout(function() {
+                  window.location.href = "/homeretrieve";
+                 }, 2000);
+          },
+          processData:false,
+          data:authResult['code']
+        });
+      } else{
+        console.log('Error occurred: ' + authResult['error']);
+        $('#result').html('Check configuration.');
+      }
+    }
+    auth2.grantOfflineAccess().then(signInCallback);
+  });
+</script>

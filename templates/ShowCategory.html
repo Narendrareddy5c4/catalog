@@ -1,0 +1,25 @@
+{% extends 'HomePage.html' %}
+{% block content %}
+<div class="container">
+	<h1 style="color:green;">Categories</h2>&nbsp&nbsp<br>
+	{% if categories %}
+	<div class="container">
+		<div class="card-columns">
+			{% for each in categories %}
+			<div class="card w-105" style="">
+				<h3>Name: <a style="color: black;" href="{{url_for('showcatitems',category_id=each.chair_id)}}">{{each.chair_name}}</a></h3>
+			<div class="card-footer">
+  			<a style="color:white;" href="{{url_for('catedit',category_id=each.chair_id)}}"><button type="button" class="btn btn-secondary">Edit Category</button></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  			<a  style="color:white;" href="{{url_for('additemnew',categoryid=each.chair_id)}}"><button type="button" class="btn btn-success">Add Item</button></a>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+	{% else %}
+		no items found
+	{% endif %}
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'HomePage.html' %}
+{% block content %}
+<div class="container">
+  <h2>New Item</h2>
+  <form method="post" action="{{url_for('additemnew',categoryid=cat_id)}}">
+    <div class="form-group">
+      <label>Name :</label>
+      <input type="text" class="form-control" id="email"  name="chairname" value='' required>
+    </div>
+    <div class="form-group">
+      <label>Image :</label>
+      <input type="text" class="form-control" value="{{chairimage}}" required name="chairimage">
+    </div>
+    <div class="form-group">
+      <label>Price :</label>($)
+      <input type="text" class="form-control" value="{{chairprice}}" required name="chairprice">
+    </div>
+    <div class="form-group">
+      <label>Weight :</label>(gm)
+      <input type="text" class="form-control"  value="{{chairbrand}}" required name="chairweight">
+    </div>
+    <div class="form-group">
+      <label>Brand :</label>
+      <input type="text" class="form-control" value="{{chairbrand}}" required name="chairbrand">
+    </div>
+  <div class="container">
+    <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success">
+      Add Item
+    </button>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Click Here to add item</h4>
+            <button type="button" class="close" data-dismiss="modal"></button>
+          </div>
+          <div class="modal-footer">
+        	 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> 
+	         <input type="submit"  class="btn btn-success" value="Add Item">
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</form>
+</div>
+{% endblock %}

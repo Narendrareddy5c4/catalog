@@ -1,0 +1,18 @@
+{% extends 'HomePage.html' %}
+{% block content %}
+<div class="container">
+<html>
+	<head>
+		<title>item details </title>
+	</head>
+	<body>
+		<h1>Item Details</h1>
+		<img src="{{infomage}}" alt="image error" height="300px", width="200px">
+		<h2 style="color: blue">{{infoname}}</h2>
+		<h3 >Price : Rs{{infoprice}}</h3>
+		<h3>Weight : {{infoweight}}grams</h3>
+		<h3>Brand : {{infobrand}}</h3>
+	</body>
+</html>
+</div>
+{% endblock %}
